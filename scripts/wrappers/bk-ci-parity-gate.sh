@@ -31,6 +31,9 @@ fi
 [[ -f .github/scripts/check-enforced-query-args.mjs ]] && run_check "enforcedQuery-guard"      node .github/scripts/check-enforced-query-args.mjs
 [[ -f .github/scripts/check-single-gate-engine.mjs ]]  && run_check "single-gate-engine-guard" node .github/scripts/check-single-gate-engine.mjs
 [[ -f .github/scripts/check-migrations-registry.mjs ]] && run_check "migrations-registry-guard" node .github/scripts/check-migrations-registry.mjs
+[[ -f .github/scripts/check-tenant-query-enforcement.mjs ]] && run_check "tenant-query-census-strict" node .github/scripts/check-tenant-query-enforcement.mjs --strict
+[[ -f .github/scripts/check-is-platform-admin-content.mjs ]] && run_check "is-platform-admin-content" node .github/scripts/check-is-platform-admin-content.mjs
+[[ -f .github/scripts/check-applied-migration-edits.mjs ]] && run_check "applied-migration-edits" node .github/scripts/check-applied-migration-edits.mjs
 [[ -f agent-runtime/swarm-executor.js ]]               && run_check "esbuild-parity-swarm-executor" npx esbuild agent-runtime/swarm-executor.js --bundle --platform=node --format=esm --outfile=/dev/null
 [[ -f api/rag/search-tool.ts ]]                        && run_check "esbuild-parity-rag-search"     npx esbuild api/rag/search-tool.ts --bundle --platform=node --format=esm --outfile=/dev/null
 [[ -f tests/strategies/strategy-failclosed.test.js ]]  && run_check "strategy-fail-closed"     npx vitest run tests/strategies/strategy-failclosed.test.js
